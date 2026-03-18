@@ -10,6 +10,7 @@ namespace Keresztrejtveny
             Console.WriteLine($"5. feladat: A keresztrejtvény mérete:\n\tSorok száma: {rejtveny.SorokDb}\n\tOszlopok száma: {rejtveny.OszlopokDb}");
             Console.WriteLine("6. feladat: A beolvasott keresztrejtvény");
             rejtveny.Megjelenites();
+            Console.WriteLine($"7. feladat: A leghosszabb függőleges szó: {rejtveny.LeghosszabbFuggolegesSzo()}");
         }
     }
 }

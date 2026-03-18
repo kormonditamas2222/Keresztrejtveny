@@ -71,5 +71,26 @@ namespace Keresztrejtveny
                 Console.Write("\t");
             }
         }
+        public int LeghosszabbFuggolegesSzo()
+        {
+            int max = 0;
+            int counter = 0;
+            for (int i = 0; i < OszlopokDb; i++)
+            {
+                for (int j = 0; j < SorokDb; j++)
+                {
+                    if (racs[i, j] == '-')
+                    {
+                        counter++;
+                    }
+                    else
+                    {
+                        max = counter;
+                        counter = 0;
+                    }
+                }
+            }
+            return max;
+        }
     }
 }
