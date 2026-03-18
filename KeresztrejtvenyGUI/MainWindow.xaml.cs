@@ -61,7 +61,8 @@ namespace KeresztrejtvenyGUI
                     textBox.TextAlignment = TextAlignment.Center;
                     textBox.Width = 20;
                     textBox.Height = 20;
-                    textBox.IsEnabled = false;
+                    textBox.MaxLength = 1;
+                    textBox.MouseDoubleClick += TextBox_MouseDoubleClick;
                     Grid.SetRow(textBox, i);
                     Grid.SetColumn(textBox, j);
                     grid.Children.Add(textBox);
@@ -70,6 +71,14 @@ namespace KeresztrejtvenyGUI
             Canvas.SetTop(grid, 50);
             Canvas.SetLeft(grid, 10);
             canva.Children.Add(grid);
+        }
+
+        private void TextBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is TextBox tb)
+            {
+                tb.Text = tb.Text == "-" ? "#" : "-";
+            }
         }
     }
 }
