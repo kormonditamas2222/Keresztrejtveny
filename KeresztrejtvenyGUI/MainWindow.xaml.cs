@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace KeresztrejtvenyGUI
 {
@@ -32,7 +33,7 @@ namespace KeresztrejtvenyGUI
             cbSor.SelectedItem = 15;
             cbIndex.SelectedItem = 3;   
         }
-
+        Grid grid = new();
         private void btnLetrehozas_Click(object sender, RoutedEventArgs e)
         {
             for (int i = 0; i < canva.Children.Count; i++)
@@ -43,7 +44,7 @@ namespace KeresztrejtvenyGUI
                     i--;
                 }
             }
-            Grid grid = new();
+            grid = new();
             for (int i = 0; i < (int)cbSor.SelectedItem; i++)
             {
                 grid.RowDefinitions.Add(new RowDefinition());
@@ -78,6 +79,39 @@ namespace KeresztrejtvenyGUI
             if (sender is TextBox tb)
             {
                 tb.Text = tb.Text == "-" ? "#" : "-";
+            }
+        }
+
+        private void btnMentes_Click(object sender, RoutedEventArgs e)
+        {
+            List<string> kimenet = new();
+            int sorokSzama = (int)cbSor.SelectedItem;
+            int oszlopokSzama = (int)cbOszlop.SelectedItem;
+            string sor = "";
+            int index = 0;
+            foreach (var item in grid.Children)
+            {
+                if (item is TextBox)
+                {
+                    TextBox tb = item as TextBox;
+                    sor += tb.Text;
+                    index++;
+                }
+                if (index == oszlopokSzama)
+                {
+                    kimenet.Add(sor);
+                    index = 0;
+                    sor = "";
+                }
+            }
+            try
+            {
+                File.WriteAllLines($"kr{cbIndex.SelectedItem}.txt", kimenet);
+                MessageBox.Show("Az keresztrejtvény mentése sikeres!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hiba történt az állomány mentése során! " + ex.Message);
             }
         }
     }
