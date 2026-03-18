@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36915.13 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Keresztrejtveny", "Keresztrejtveny\Keresztrejtveny.csproj", "{968BB16D-6410-41FC-9243-669002A948FB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeresztrejtvenyGUI", "KeresztrejtvenyGUI\KeresztrejtvenyGUI.csproj", "{F5336FB9-04A5-440A-9412-503F2FBC967E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{968BB16D-6410-41FC-9243-669002A948FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{968BB16D-6410-41FC-9243-669002A948FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{968BB16D-6410-41FC-9243-669002A948FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5336FB9-04A5-440A-9412-503F2FBC967E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5336FB9-04A5-440A-9412-503F2FBC967E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5336FB9-04A5-440A-9412-503F2FBC967E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5336FB9-04A5-440A-9412-503F2FBC967E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
