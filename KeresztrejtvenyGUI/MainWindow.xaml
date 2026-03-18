@@ -6,12 +6,13 @@
         xmlns:local="clr-namespace:KeresztrejtvenyGUI"
         mc:Ignorable="d"
         Title="Keresztrejtvény készítő" Height="450" Width="400">
-    <Canvas>
+    <Canvas x:Name="canva">
         <Label Content="Keresztrejtvény mérete: [sor x oszlop]"/>
         <ComboBox x:Name="cbSor" Canvas.Left="220" Canvas.Top="5"/>
         <ComboBox x:Name="cbOszlop" Canvas.Left="260" Canvas.Top="5"/>
         <Button x:Name="btnLetrehozas" Content="Keresztrejtvény létrehozása" Canvas.Left="5" Canvas.Top="30" Click="btnLetrehozas_Click"/>
         <Button x:Name="btnMentes" Content="Keresztrejtvény mentése" Canvas.Left="170" Canvas.Top="30"/>
         <ComboBox x:Name="cbIndex" Canvas.Left="320" Canvas.Top="30"/>
+        
     </Canvas>
 </Window>

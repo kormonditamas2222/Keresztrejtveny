@@ -35,7 +35,41 @@ namespace KeresztrejtvenyGUI
 
         private void btnLetrehozas_Click(object sender, RoutedEventArgs e)
         {
-
+            for (int i = 0; i < canva.Children.Count; i++)
+            {
+                if (canva.Children[i] is Grid)
+                {
+                    canva.Children.Remove(canva.Children[i] as Grid);
+                    i--;
+                }
+            }
+            Grid grid = new();
+            for (int i = 0; i < (int)cbSor.SelectedItem; i++)
+            {
+                grid.RowDefinitions.Add(new RowDefinition());
+            }
+            for (int i = 0; i < (int)cbOszlop.SelectedItem; i++)
+            {
+                grid.ColumnDefinitions.Add(new ColumnDefinition());
+            }
+            for (int i = 0; i < grid.RowDefinitions.Count; i++)
+            {
+                for (int j = 0; j < grid.ColumnDefinitions.Count; j++)
+                {
+                    TextBox textBox = new();
+                    textBox.Text = "-";
+                    textBox.TextAlignment = TextAlignment.Center;
+                    textBox.Width = 20;
+                    textBox.Height = 20;
+                    textBox.IsEnabled = false;
+                    Grid.SetRow(textBox, i);
+                    Grid.SetColumn(textBox, j);
+                    grid.Children.Add(textBox);
+                }
+            }
+            Canvas.SetTop(grid, 50);
+            Canvas.SetLeft(grid, 10);
+            canva.Children.Add(grid);
         }
     }
 }
