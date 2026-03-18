@@ -18,7 +18,7 @@ namespace Keresztrejtveny
             BeolvasAdatsorok(forras);
             racs = new char[SorokDb, OszlopokDb];
             sorszamok = new int[SorokDb, OszlopokDb];
-            FeltoltRacs()
+            FeltoltRacs();
         }
         public int OszlopokDb => adatsorok[0].Length;
         public int SorokDb => adatsorok.Count;

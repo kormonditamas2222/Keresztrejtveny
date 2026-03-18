@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            KeresztrejtvenyRacs rejtveny = new KeresztrejtvenyRacs("kr1.txt");
         }
     }
 }
