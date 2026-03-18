@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Globalization;
 
 namespace Keresztrejtveny
 {
@@ -15,6 +16,7 @@ namespace Keresztrejtveny
 
         public KeresztrejtvenyRacs(string forras)
         {
+            adatsorok = new List<string>();
             BeolvasAdatsorok(forras);
             racs = new char[SorokDb, OszlopokDb];
             sorszamok = new int[SorokDb, OszlopokDb];
@@ -33,10 +35,40 @@ namespace Keresztrejtveny
         {
             for (int i = 0; i < SorokDb; i++)
             {
-                for (int j = 0; i < OszlopokDb; j++)
+                for (int j = 0; j < OszlopokDb; j++)
                 {
                     racs[i, j] = adatsorok[i][j];
                 }
+            }
+        }
+        public void Megjelenites()
+        {
+            char[,] atalakitottRacs = new char[SorokDb, OszlopokDb * 2];
+            for (int i = 0; i < SorokDb; i++)
+            {
+                for (int j = 0; j < OszlopokDb; j++)
+                {
+                    if (racs[i,j] == '#')
+                    {
+                        atalakitottRacs[i, j * 2] = '#';
+                        atalakitottRacs[i, j * 2 + 1] = '#';
+                    }
+                    else
+                    {
+                        atalakitottRacs[i, j * 2] = '[';
+                        atalakitottRacs[i, j * 2 + 1] = ']';
+                    }
+                }
+            }
+            Console.Write("\t");
+            for (int i = 0; i < SorokDb; i++)
+            {
+                for (int j = 0; j < OszlopokDb * 2; j++)
+                {
+                    Console.Write(atalakitottRacs[i, j]);
+                }
+                Console.WriteLine();
+                Console.Write("\t");
             }
         }
     }
